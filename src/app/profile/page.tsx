@@ -1,13 +1,17 @@
 "use client";
 
 import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { NextRequest, NextResponse } from "next/server";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import toast from "react-hot-toast";
 
 function ProfilePage() {
   const route = useRouter();
+  const [id, setId] = useState("nothing");
+  const currId = useRef("nothing");
+
   const onLogOut = async () => {
     try {
       const response = await axios.get("api/users/logout");
@@ -23,7 +27,15 @@ function ProfilePage() {
   const onDetails = async () => {
     try {
       const data = await axios.get("api/users/me");
-      console.log(data.data);
+      // console.log(data);
+      // console.log(data.data);
+      const user = data.data.data;
+      console.log(user._id);
+      //setMovies(prevMovies => ([...prevMovies, ...result]));
+      currId.current = user.username;
+      console.log(currId.current);
+      // console.log(user, "hello");
+      route.push(`/profile/${currId.current}`);
     } catch (error: any) {
       console.log("Details Unsuccessful!", error.message);
       toast.error("Details Unsuccessful!");
@@ -47,6 +59,10 @@ function ProfilePage() {
       >
         User Details
       </button>
+
+      {/* <div>
+        {id === "nothing" ? <></> : <Link href={`/profile/${id}`}></Link>}
+      </div> */}
     </div>
   );
 }
