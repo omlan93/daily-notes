@@ -42,10 +42,8 @@ function ProfilePage() {
     }
   };
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1>Profile</h1>
-      <hr />
-      <p>Profile Page</p>
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-blue-300 text-blue-900">
+      <h2 className="text-2xl">Welcome to your profile page</h2>
       <button
         className="bg-blue-500 hover:bg-blue-700 font-bold text-white rounded-full px-8 py-4 mt-4"
         onClick={onLogOut}

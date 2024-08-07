@@ -1,5 +1,6 @@
 "use client";
 
+import { sendEmail } from "@/helpers/mailer";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -39,12 +40,14 @@ function LoginPage() {
     }
   }, [user]);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1>{Loading ? "Processing" : "Log In"}</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-blue-300 text-blue-900">
+      <h1 className="text-4xl text-blue-900 mb-6">
+        {Loading ? "Processing" : "Log In"}
+      </h1>
       <hr />
-      <label htmlFor="email">email</label>
+      <label htmlFor="email">Email</label>
       <input
-        className="text-black p-2 border border-gray-300 rounded-lg"
+        className="text-black p-2 border border-gray-300 rounded-lg mb-4"
         type="text"
         id="email"
         value={user.email}
@@ -52,9 +55,9 @@ function LoginPage() {
         onChange={(e) => setUser({ ...user, email: e.target.value })}
       />
       <hr />
-      <label htmlFor="password">password</label>
+      <label htmlFor="password">Password</label>
       <input
-        className="text-black p-2 border border-gray-300 rounded-lg"
+        className="text-black p-2 border border-gray-300 rounded-lg mb-4"
         type="password"
         id="password"
         value={user.password}
@@ -63,11 +66,14 @@ function LoginPage() {
       />
 
       <button
-        className="p-2 border border-gray-300 rounded-lg mb-4 mt-4 focus:outline-none focus:border-gray-600"
+        className="p-2 border border-gray-300 rounded-lg mb-4 mt-4 focus:outline-none focus:border-gray-600 text-white bg-blue-700"
         onClick={onLogin}
       >
-        Signup here
+        Login
       </button>
+      <hr />
+      <Link href={"/forgotpassword"}>Forgot Password?</Link>
+      <hr />
       <Link href={"/signup"}>Visit Signup page</Link>
     </div>
   );
