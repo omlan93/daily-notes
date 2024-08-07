@@ -34,11 +34,14 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
       sunject:
         emailType === "VERIFY" ? "Verify Your Email" : "Reset your password",
 
-      html:
-        emailType === "VERIRFY"
-          ? `<p>Click <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}">here</a> to verify your email</p>`
-          : `<p>Click <a href="${process.env.DOMAIN}/resetpassword?token=${hashedToken}">here</a> to update your password</p>`,
+      html: "",
     };
+
+    if (emailType === "VERIFY") {
+      mailOptions.html = `<p>Click <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}">here</a> to verify your email</p>`;
+    } else if (emailType === "RESET") {
+      mailOptions.html = `<p>Click <a href="${process.env.DOMAIN}/resetpassword?token=${hashedToken}">here</a> to update your password</p>`;
+    }
 
     const mailresponse = await transport.sendMail(mailOptions);
     console.log("Mail Sent");
