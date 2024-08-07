@@ -4,7 +4,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 
-function forgotPassword() {
+function ForgotPassword() {
   const [email, setEmail] = React.useState("");
 
   const onsubmit = async () => {
@@ -42,4 +42,4 @@ function forgotPassword() {
   );
 }
 
-export default forgotPassword;
+export default ForgotPassword;

@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
 
-function verifyEmail() {
+function VerifyEmail() {
   const [token, setToken] = React.useState("");
   const [verified, setVerified] = React.useState(false);
   const [error, seteError] = React.useState(false);
@@ -54,4 +54,4 @@ function verifyEmail() {
   );
 }
 
-export default verifyEmail;
+export default VerifyEmail;

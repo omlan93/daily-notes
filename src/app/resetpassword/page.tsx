@@ -8,7 +8,7 @@ import { set } from "mongoose";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-function resetPassword() {
+function ResetPassword() {
   const router = useRouter();
   const [token, setToken] = React.useState("");
   const [verified, setVerified] = React.useState(false);
@@ -140,4 +140,4 @@ function resetPassword() {
   );
 }
 
-export default resetPassword;
+export default ResetPassword;
