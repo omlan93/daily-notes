@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import { sendEmail } from "@/helpers/mailer";
 import { NextRequest, NextResponse } from "next/server";
 import { error } from "console";
+import next from "next";
 
 connect();
 
@@ -25,10 +26,10 @@ export async function POST(request: NextRequest) {
       userId: user._id,
     });
 
-    return {
+    return NextResponse.json({
       message: "Email sent successfully",
       success: true,
-    };
+    });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
