@@ -93,7 +93,7 @@ function SignUp() {
         onChange={(e) => setUser({ ...user, password: e.target.value })}
       />
       <button
-        className="p-2 border border-gray-300 rounded-lg mb-4 mt-4  bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="p-2 border border-gray-300  mb-4 mt-4  bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
         onClick={onSignup}
       >
         {buttonDisabled ? "No Signup" : "Signup here"}
