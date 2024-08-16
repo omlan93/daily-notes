@@ -26,10 +26,7 @@ function Notes() {
     const id = e.currentTarget.getAttribute("data-value");
     console.log(id);
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/notes/deletenotes",
-        { id }
-      );
+      const response = await axios.post("/api/notes/deletenotes", { id });
 
       setNotes(notes);
       setFlag(false);

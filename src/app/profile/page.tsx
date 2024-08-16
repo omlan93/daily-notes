@@ -10,7 +10,7 @@ async function ProfilePage() {
     <main>
       <div className="flex flex-col min-h-screen items-center justify-center relative bg-blue-300 text-black">
         <p>
-          {session?.user.name} {session?.user.email}
+          {session?.user.name}, {session?.user.email}
         </p>
       </div>
     </main>

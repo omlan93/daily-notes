@@ -6,7 +6,7 @@ async function ReadNote({ params }: any) {
   const id = params.id;
 
   let notes;
-  const url = "http://localhost:3000/api/notes/getnotebyId";
+  const url = "/api/notes/getnotebyId";
   try {
     const response = await fetch(url, {
       method: "POST",

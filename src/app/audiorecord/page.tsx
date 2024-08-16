@@ -32,10 +32,7 @@ export default function ExampleComponent() {
       //   body: formData,
       // });
 
-      const response = await axios.post(
-        "http://localhost:3000/api/audioUpload",
-        { formData }
-      );
+      const response = await axios.post("/api/audioUpload", { formData });
       console.log(response);
     } catch (error: any) {
       console.log(error.data);

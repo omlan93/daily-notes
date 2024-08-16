@@ -32,11 +32,7 @@ async function Navbar() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link
-            href="http://localhost:3000/profile/notes"
-            legacyBehavior
-            passHref
-          >
+          <Link href="/profile/notes" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Your Notes
             </NavigationMenuLink>
