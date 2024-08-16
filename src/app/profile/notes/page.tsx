@@ -87,7 +87,7 @@ function Notes() {
     <main className="bg-blue-300 min-h-screen">
       <div className="flex flex-col justify-center items-center">
         <Button className="mt-10" size="lg" onClick={addNote}>
-          Add today's Note
+          Add today&apos;s Note
         </Button>
         {notes.map((note: any, index: any) => (
           <Card key={index} className="text-black mt-10 w-96">
