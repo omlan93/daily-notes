@@ -44,5 +44,5 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return true;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: `${process.env.NEXTAUTH_SECRET}`,
 });
