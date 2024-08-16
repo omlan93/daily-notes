@@ -1,28 +1,39 @@
-"use client";
+// import { signIn } from "../../auth";
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+// export default function SignIn() {
+//   const onclick = async () => {
+//     "use server";
+//     await signIn();
+//   };
+//   return (
+//     <div className="flex flex-col justify-center items-center min-h-screen bg-blue-300">
+//       <h1 className="text-4xl text-blue-900 mb-8">
+//         Welcome to <span className="text-6xl ml-4">Daily Notes</span>
+//       </h1>
 
-export default function Home() {
-  const route = useRouter();
+//       <button
+//         onClick={onclick}
+//         className="text-2xl text-white bg-blue-700 rounded-md w-40 h-10"
+//       >
+//         Sign in
+//       </button>
+//     </div>
+//   );
+// }
+import { signIn } from "../../auth";
+import { auth } from "../../auth";
+
+export default async function SignIn() {
+  const session = await auth();
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-blue-400">
-      <h1 className="text-4xl text-blue-900 mb-20">Welcome</h1>
-      <hr />
-      <div className="flex space-x-20">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => route.push("/signup")}
-        >
-          Sign Up
-        </button>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => route.push("/login")}
-        >
-          Login
-        </button>
-      </div>
-    </div>
+    <form
+      action={async () => {
+        "use server";
+        console.log(session);
+        await signIn("google", { redirectTo: "/profile" });
+      }}
+    >
+      <button type="submit">Sign in</button>
+    </form>
   );
 }
