@@ -1,23 +1,19 @@
-import mongoose from "mongoose";
-import Audio from "@/models/audioModel";
-import { connect } from "@/app/dbConfig/dbConfig";
+import { put } from "@vercel/blob";
 import { NextRequest, NextResponse } from "next/server";
 
-connect();
-
 export async function POST(request: NextRequest) {
-  try {
-    console.log("first");
-    const reqBody = await request.json();
-    const formData: any = new FormData();
+  console.log("first");
+  const reqBody = await request.blob();
+  console.log(reqBody);
+  var file = new File([reqBody], "file_name", { lastModified: 1534584790000 });
 
-    console.log(formData.get("audio-file"));
-    console.log("first");
-  } catch (error: any) {
-    console.log(error.message);
-  }
-}
+  const { url } = await put("new.wav", file, {
+    access: "public",
+  });
+  console.log(url);
 
-export async function GET() {
-  return NextResponse.json({ message: "Hello" });
+  // return Response.json({ url });
+  return NextResponse.json({
+    url,
+  });
 }

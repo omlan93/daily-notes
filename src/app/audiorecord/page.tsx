@@ -14,7 +14,7 @@ export default function ExampleComponent() {
     setUrl(url);
     setFlag(true);
     console.log(url);
-    sendAudioFile(blob);
+
     const audio = document.createElement("audio");
     audio.src = url;
     console.log(url);
@@ -22,22 +22,22 @@ export default function ExampleComponent() {
     document.body.appendChild(audio);
   };
 
-  const sendAudioFile = async (blob: any) => {
-    const formData = new FormData();
-    formData.append("audio-file", blob);
-    console.log(formData.get("audio-file"));
-    try {
-      // const response = await fetch("http://localhost:3000/api/audioUpload", {
-      //   method: "POST",
-      //   body: formData,
-      // });
+  // const sendAudioFile = async (blob: any) => {
+  //   const formData = new FormData();
+  //   formData.append("audio-file", blob);
+  //   console.log(formData.get("audio-file"));
+  //   try {
+  //     // const response = await fetch("http://localhost:3000/api/audioUpload", {
+  //     //   method: "POST",
+  //     //   body: formData,
+  //     // });
 
-      const response = await axios.post("/api/audioUpload", { formData });
-      console.log(response);
-    } catch (error: any) {
-      console.log(error.data);
-    }
-  };
+  //     const response = await axios.post("/api/audioUpload", { formData });
+  //     console.log(response);
+  //   } catch (error: any) {
+  //     console.log(error.data);
+  //   }
+  // };
 
   return (
     <div>

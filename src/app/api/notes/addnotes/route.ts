@@ -9,12 +9,12 @@ connect();
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
-    var { email, note, date }: any = reqBody;
+    var { email, note, audio, date }: any = reqBody;
     const session = await auth();
     console.log(session);
     email = session?.user.email;
     console.log(email);
-    date = new Date().toString();
+    date = new Date();
     console.log(date);
 
     console.log(reqBody);
@@ -22,6 +22,7 @@ export async function POST(request: NextRequest) {
     const newNote = new Notes({
       email,
       note,
+      audio,
       date,
     });
     console.log(newNote);

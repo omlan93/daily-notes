@@ -10,8 +10,12 @@ const noteSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a note"],
   },
-  date: {
+  audio: {
     type: String,
+  },
+
+  date: {
+    type: Date,
     required: [true, "Please provide a date"],
   },
 });

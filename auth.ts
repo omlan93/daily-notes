@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import { connect } from "@/app/dbConfig/dbConfig";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 import User from "@/models/userModel";
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || " ";
@@ -15,6 +16,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       clientId: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
     }),
+    FacebookProvider({
+      clientId: process.env.AUTH_FACEBOOK_ID || "",
+      clientSecret: process.env.AUTH_FACEBOOK_SECRET || "",
+    }),
   ],
   callbacks: {
     async signIn({ account, profile }: any) {
@@ -28,6 +33,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       console.log("first");
 
       await connect();
+      console.log("first");
       const user = await User.findOne({ email: profile.email });
 
       console.log(user);
@@ -41,6 +47,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         console.log(newUser);
         await newUser.save();
       }
+
       return true;
     },
   },

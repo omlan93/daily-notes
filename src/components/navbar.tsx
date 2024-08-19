@@ -12,10 +12,13 @@ import {
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import UserAvatar from "./UserAvatar";
-import { auth } from "../../auth";
+import { auth, signOut } from "../../auth";
+import { LogOut } from "@/helpers/logOut";
 
 async function Navbar() {
   const session = await auth();
+  console.log(session);
+
   return (
     <NavigationMenu className="text-lg relative w-screen">
       <NavigationMenuList className="w-screen">
@@ -53,9 +56,9 @@ async function Navbar() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/logout" legacyBehavior passHref>
+          <Link href="/signout" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Logout
+              Sign Out
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
