@@ -1,6 +1,5 @@
 "use client";
-import axios from "axios";
-import { set } from "mongoose";
+
 import { useState } from "react";
 
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
