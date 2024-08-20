@@ -1,20 +1,24 @@
-import UserAvatar from "@/components/UserAvatar";
-import { auth } from "../../../auth";
+// // import { auth, currentUser } from "@clerk/nextjs/server";
 
-async function ProfilePage() {
-  const session = await auth();
+// function ProfilePage() {
+//   // // const { userId } = auth();
+//   // const user = await currentUser();
 
-  if (!session?.user) return null;
+//   // // console.log(userId, user);
+//   // console.log(user?.primaryEmailAddress?.emailAddress);
+//   // const email = user?.primaryEmailAddress?.emailAddress;
+//   // console.log(email);
 
-  return (
-    <main>
-      <div className="flex flex-col min-h-screen items-center justify-center relative bg-blue-300 text-black">
-        <p>
-          {session?.user.name}, {session?.user.email}
-        </p>
-      </div>
-    </main>
-  );
+//   return (
+//     <div className="flex flex-col min-h-screen items-center justify-center relative bg-blue-300 text-black">
+//       <p>email</p>
+//     </div>
+//   );
+// }
+
+// export default ProfilePage;
+
+import React from "react";
+export default function Page() {
+  return <div>page</div>;
 }
-
-export default ProfilePage;

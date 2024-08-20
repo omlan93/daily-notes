@@ -6,7 +6,6 @@ function UserProfile({ params }: any) {
       <h1 className="text-4xl text-blue-900 mb-10">Profile Details</h1>
       <hr />
       <p className="text-4xl text-blue-900">
-        User ID:{" "}
         <span className="p-2 rounded bg-orange-500 text-black ml-2">
           {params.id}
         </span>

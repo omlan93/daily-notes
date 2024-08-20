@@ -100,11 +100,12 @@ export default function AddNote() {
           <button onClick={recorderControls.stopRecording}>
             Stop recording
           </button>
-          {flag && (
-            <audio controls>
-              <source src={url} type="audio/mpeg" />
-              <source src={url} type="audio/ogg" />
-              {/* <p>
+          <div>
+            {flag && (
+              <audio controls>
+                <source src={url} type="audio/mpeg" />
+                <source src={url} type="audio/ogg" />
+                {/* <p>
         Download
         <a href="myAudio.mp3" download="myAudio.mp3">
           MP3
@@ -115,8 +116,9 @@ export default function AddNote() {
         </a>
         audio.
       </p> */}
-            </audio>
-          )}
+              </audio>
+            )}
+          </div>
         </div>
       </div>
 

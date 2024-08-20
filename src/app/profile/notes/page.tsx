@@ -97,10 +97,10 @@ function Notes() {
         <Button className="mt-10" size="lg" onClick={addNote}>
           Add today&apos;s Note
         </Button>
-        {notes?.map((note: any, index: any) => (
+        {/* {notes?.map((note: any, index: any) => (
           <Card key={index} className="text-black mt-10 w-96">
             <CardHeader>
-              {/* <CardTitle>{index + 1}</CardTitle> */}
+              {/* <CardTitle>{index + 1}</CardTitle> 
               <CardDescription></CardDescription>
             </CardHeader>
             <CardContent>
@@ -165,7 +165,7 @@ function Notes() {
               </Button>
             </CardFooter>
           </Card>
-        ))}
+        ))} */}
       </div>
     </main>
   );

@@ -17,7 +17,7 @@ export default function UserAvatar({ props }: any) {
     <main>
       <div className="mb-2">
         <img
-          src={props.user.image}
+          src={props}
           alt="User Avatar"
           className="rounded-full size-14"
           onClick={onclick}

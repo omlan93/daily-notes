@@ -14,10 +14,11 @@ import Link from "next/link";
 import UserAvatar from "./UserAvatar";
 import { auth, signOut } from "../../auth";
 import { LogOut } from "@/helpers/logOut";
+import { currentUser } from "@clerk/nextjs/server";
 
 async function Navbar() {
-  const session = await auth();
-  console.log(session);
+  const user = await currentUser();
+  console.log(user?.imageUrl);
 
   return (
     <NavigationMenu className="text-lg relative w-screen">
@@ -64,7 +65,7 @@ async function Navbar() {
         </NavigationMenuItem>
 
         <NavigationMenuItem className="top-0 right-0 mt-2">
-          <UserAvatar props={session} />
+          <UserAvatar props={user?.imageUrl} />
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

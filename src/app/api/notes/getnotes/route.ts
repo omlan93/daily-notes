@@ -2,14 +2,15 @@ import mongoose from "mongoose";
 import Notes from "@/models/noteModel";
 import { connect } from "@/app/dbConfig/dbConfig";
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "../../../../../auth";
+
+import { currentUser } from "@clerk/nextjs/server";
 
 connect();
 
 export async function GET() {
-  const session = await auth();
-  console.log(session);
-  const email = session?.user.email;
+  const user = await currentUser();
+  console.log(user);
+  const email = user?.primaryEmailAddress?.emailAddress;
   try {
     const notes = await Notes.find({ email: email }).exec();
 

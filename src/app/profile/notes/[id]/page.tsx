@@ -7,10 +7,10 @@ async function ReadNote({ params }: any) {
 
   let notes;
   const url = "http://localhost:3000/api/notes/getnotebyId";
-  const url1 = `${process.env.NEXTAUTH_URL}/api/notes/getnotebyId`;
+  const url1 = `${process.env.APP_URL}/api/notes/getnotebyId`;
   console.log(url1);
   try {
-    const response = await fetch(url, {
+    const response = await fetch(url1, {
       method: "POST",
       body: JSON.stringify(id),
     });
@@ -30,12 +30,12 @@ async function ReadNote({ params }: any) {
     <main className="bg-blue-400 min-h-screen flex flex-col  items-center">
       <Card className="h-48 mt-28 w-96 mb-10">
         <CardContent>
-          <p className="mt-10">{notes.note}</p>
+          <p className="mt-10">{notes?.note}</p>
         </CardContent>
       </Card>
       <audio controls>
-        <source src={notes.audio} type="audio/mpeg" />
-        <source src={notes.audio} type="audio/ogg" />
+        <source src={notes?.audio || ""} type="audio/mpeg" />
+        <source src={notes?.audio || ""} type="audio/ogg" />
         {/* <p>
         Download
         <a href="myAudio.mp3" download="myAudio.mp3">
